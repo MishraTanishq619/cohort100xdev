@@ -1,3 +1,2 @@
-[submodule "assignments"]
-	path = assignments
-	url = https://github.com/100xdevs-cohort-2/assignments
+[submodule "assignments/"]
+	url = https://github.com/MishraTanishq619/100xassignments/
