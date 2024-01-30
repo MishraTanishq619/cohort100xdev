@@ -8,23 +8,26 @@ const { log } = require("console");
 app.use(express.json()); // to acces req.body in post reqs
 
 app.get("/", (req, res) => {
-	res.send("<b>Hello Mr. India</b>");
+  res.send("<b>Hello Mr. India</b>");
 });
 
+// get - req.query params
+// post - req.body params
+
 app.get("/Hi", (req, res) => {
-	console.log(req.query);
-	const n = req.query.n;
-	res.send("Number is : " + n);
-	// res.send("hello");
+  console.log(req.query);
+  const n = req.query.n;
+  res.send("Number is : " + n);
+  // res.send("hello");
 });
 
 app.post("/", (req, res) => {
-	console.log(req.body);
-	res.json({
-		msg: "Done!",
-	});
+  console.log(req.body);
+  res.json({
+    msg: "Done!",
+  });
 });
 
 app.listen(PORT, () => {
-	console.log("Listening at port :" + PORT);
+  console.log("Listening at port :" + PORT);
 });
