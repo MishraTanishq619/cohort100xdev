@@ -53,17 +53,18 @@ app.post("/signin", function (req, res) {
 		});
 	}
 
-	var token = jwt.sign({ username: username }, "shhhhh");
+	var token = jwt.sign({ username: username }, jwtPassword); // signature
 	return res.json({
 		token,
 	});
 });
 
-app.get("/users", function (req, res) {
-	const token = req.headers.authorization;
-	//   console.log(jwt.verify(token, jwtPassword));
+app.get("/users", async function (req, res) {
+	const token = req.headers["authorization"] || req.headers.Authorization;
+	console.log(token);
 	//   console.log("df");
 	try {
+		// console.log(jwt.verify(token, jwtPassword));
 		const decoded = jwt.verify(token, jwtPassword);
 		const username = decoded.username;
 		// return a list of users other than this username
